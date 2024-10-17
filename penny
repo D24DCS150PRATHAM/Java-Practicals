@@ -1,0 +1,12 @@
+package part3;
+import java.util.*;
+public class penny {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("PLease Enter amount in pound: ");
+		int a = sc.nextInt();
+		System.out.println("Your amount in rupees : "+ a*100);
+		
+	}
+}
+

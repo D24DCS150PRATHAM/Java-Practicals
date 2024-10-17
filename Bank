@@ -1,0 +1,98 @@
+package part4;
+
+import java.util.*;
+
+interface Account{
+	public void deposit(double amount);
+	public void withdraw(double amount);
+	public void viewbalance();
+	public void calc_intrest();
+}
+class savingaccount implements Account{
+	double balance;
+	double intrest_rate;
+	public savingaccount(double initial_balance , double intrest_rate) {
+		this.balance = initial_balance;
+		this.intrest_rate = intrest_rate;
+	}
+	public void deposit(double amount) {
+		balance += amount;
+		System.out.println("The Deposited Amount in Saving Account : "+amount+ " Total Balance : "+balance);
+	}
+	public void withdraw(double amount) {
+		if (amount <= balance) {
+			System.out.println("Amount Withdrawed from Saving account ! Amount withdrawed: "+amount+ "Total balance: "+balance);
+		}
+	}
+	public void viewbalance() {
+		System.out.println("Balance in saving account  : "+balance);
+	}
+	public void calc_intrest() {
+		System.out.println("Your Intrest : " + (balance*intrest_rate)/100);
+	}
+	
+}
+class currentaccount implements Account{
+	double balance;
+	double intrest_rate;
+	public currentaccount(double initial_balance , double intrest_rate) {
+		this.balance = initial_balance;
+		this.intrest_rate = intrest_rate;
+	}
+	public void deposit(double amount) {
+		balance += amount;
+		System.out.println("The Deposited Amount in Current Account: "+amount+ " Total Balance : "+balance);
+	}
+	public void withdraw(double amount) {
+		if (amount <= balance) {
+			System.out.println("Amount Withdrawed from current account! Amount withdrawed: "+amount+ "Total balance: "+balance);
+		}
+		else {
+			System.out.println("Withdrawing amount is more than the current balance! ");
+		}
+	}
+	public void viewbalance() {
+		System.out.println("Balance : "+balance);
+	}
+	public void calc_intrest() {
+		System.out.println("Current Account doesnt earn intrests");
+	}
+	
+}
+
+public class Bank {
+	public static void main(String[] args) {
+		bank_manage b = new bank_manage();
+		savingaccount sv = new savingaccount(1000,4);
+		currentaccount ac = new currentaccount(21000,2);
+		b.addaccount(sv);
+		b.addaccount(ac);
+		sv.deposit(2000);
+		sv.withdraw(1500);
+		ac.deposit(3000);
+		ac.withdraw(200000);
+		sv.calc_intrest();
+		ac.calc_intrest();
+	
+		
+		
+		
+	}
+}
+class bank_manage{
+	private List<Account> ac;
+	public bank_manage() {
+		ac = new ArrayList<>();
+		
+	}
+	public void addaccount(Account acs) {
+		ac.add(acs);
+		System.out.println("Account added Successfully!! ");
+	}
+	public void show_balance() {
+		for(Account acc : ac) {
+			acc.viewbalance();
+		}
+		}
+	
+	}

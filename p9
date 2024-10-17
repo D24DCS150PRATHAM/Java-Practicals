@@ -1,0 +1,20 @@
+public class p9
+{
+    public static void main(String[] args)
+    {
+        System.out.println(doubleChar("The"));       // Expected output: "TThhee"
+        System.out.println(doubleChar("AAbb"));      // Expected output: "AAAAbbbb"
+        System.out.println(doubleChar("Hi-There"));  // Expected output: "HHii--TThheerree"
+    }
+
+    public static String doubleChar(String str)
+    {
+        StringBuilder result = new StringBuilder();
+        for (char c : str.toCharArray())
+        {
+            result.append(c).append(c);
+        }
+        return result.toString();
+    }
+
+}

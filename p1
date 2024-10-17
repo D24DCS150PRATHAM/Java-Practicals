@@ -1,0 +1,8 @@
+public class p2
+{
+    public static void main (String args[])
+    {
+        double c_balance = 20;
+        System.out.println("total bank balance: $"+c_balance);
+    }
+}

@@ -1,0 +1,12 @@
+public class p11
+{
+    public static void main(String args[])
+    {
+        String str = "CHARUSAT UNIVERSITY";
+        System.out.println(" String : "+str);
+        System.out.println(" Length of the String : "+str.length());
+        System.out.println(" Replace of the String : "+str.replace("H","M"));
+        System.out.println(" Lowercase of the String : "+str.toLowerCase());
+    }
+
+}

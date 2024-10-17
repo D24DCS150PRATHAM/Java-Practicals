@@ -1,0 +1,49 @@
+import java.util.*;
+    public class p5
+    {
+        public static void main(String[] args)
+        {
+            int[] productCodes = {1,2,3,4,5,6};
+            double[] prices = {100.0, 50.0, 30.0, 20.0,55.0,60.0};
+
+            double totalBill = 0.0;
+
+            for (int i = 0; i < productCodes.length; i++)
+            {
+                int itemCode = productCodes[i];
+                double price = prices[i];
+                double tax = calculateTax(itemCode, price);
+                double totalPrice = price + tax;
+                totalBill += totalPrice;
+
+                System.out.printf("Item %d: Code %d, Price: %.2f, Tax: %.2f, Total Price: %.2f%n", i + 1, itemCode, price, tax, totalPrice);
+            }
+
+            System.out.printf("Total Bill: %.2f%n", totalBill);
+        }
+
+        public static double calculateTax(int itemCode, double price)
+        {
+            double taxRate;
+            switch (itemCode)
+            {
+                case 1: // Motor
+                    taxRate = 0.08;
+                    break;
+                case 2: // Fan
+                    taxRate = 0.12;
+                    break;
+                case 3: // Tube light
+                    taxRate = 0.05;
+                    break;
+                case 4: // Wires
+                    taxRate = 0.075;
+                    break;
+                default: // All other items
+                    taxRate = 0.03;
+            }
+
+            return price * taxRate;
+        }
+    }
+

@@ -1,0 +1,39 @@
+import java.util.*;
+
+import static java.util.Collections.sort;
+
+public class p10
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        String str;
+        System.out.print("Enter a string : ");
+        str = sc.nextLine();
+        // LENGTH OF THE STRING
+        System.out.println("Length of the string : " + str.length());
+        // UPPERCASE OF THE STRING
+        System.out.println("Uppercase of the string : " + str.toUpperCase());
+        // Lowercase of string
+        System.out.println("Lowercase of the string : " + str.toLowerCase());
+        // reversing the string
+        StringBuilder s1 = new StringBuilder(" ");
+        s1.append(str);
+        s1.reverse();
+        System.out.println("Reverse of the string : "+s1);
+        // Sorting of the string
+        ArrayList<Integer> a1 = new ArrayList<Integer>();
+        int i = 0,size;
+        System.out.println("How many elements you want in list? ");
+        size = sc.nextInt();
+        System.out.println("Enter elements of arraylist: ");
+        while(i<size)
+        {
+            a1.add(sc.nextInt());
+            i++;
+        }
+        System.out.println(" Original array : "+a1);
+        sort(a1);
+        System.out.println(" Sorted array : "+a1);
+    }
+}
