@@ -1,42 +1,46 @@
-package part4;
+ class members {
+    String Name;
+    int age;
+    String phonno;
+    String address;
+    int salary;
 
-public class p18 {
-	public static void main(String[] args) {
-		System.out.println("From Employee");
-		Employee e = new Employee();
-		e.address = "101,Old Town Road";
-		e.age = 21;
-		e.name="Den Josh";
-		e.salary = 150000;
-		e.Department = "Management";
-		e.phone_number = 66987844;
-		e.Specialization = "Project Management";
-		e.Salary();
-		System.out.println("Manager's name :"+ e.name);
-		System.out.println("Manager's Age:"+e.age);
-		System.out.println("Manager's name:"+e.name);
-		System.out.println("Manager's salary:"+e.salary);
-		System.out.println("Manager's Department:"+e.Department);
-		System.out.println("Manager's Phone_number:"+e.phone_number);
-		System.out.println("Managers Specialization:" + e.Specialization);
-		
-		
-		
-		System.out.println("From Manager");
-		Manager m = new Manager();
-		m.address = "New City Near Library ";
-		m.age = 25;
-		m.name = "Jeralddine Marek";
-		m.salary = 65753;
-		m.Department = "Project Supply";
-		m.Specialization = "Chain Management";
-		m.Salary();
-		System.out.println("Manager's name :"+ m.name);
-		System.out.println("Manager's Age:"+m.age);
-		System.out.println("Manager's name:"+m.name);
-		System.out.println("Manager's salary:"+m.salary);
-		System.out.println("Manager's Department:"+m.Department);
-		System.out.println("Manager's Phone_number:"+m.phone_number);
-		System.out.println("Managers Specialization:" + m.Specialization);
-	}
+    public void printSalary(){
+        System.out.println("The Salary of "+ Name + " is " + salary);
+    }
+
+     public members(String name, int age, String phonno, String address, int salary) {
+         Name = name;
+         this.age = age;
+         this.phonno = phonno;
+         this.address = address;
+         this.salary = salary;
+     }
+ }
+class Employee1 extends members{
+    String specialization;
+
+    public Employee1(String name, int age, String phonno, String address, int salary, String specialization) {
+        super(name, age, phonno, address, salary);
+        this.specialization = specialization;
+    }
 }
+
+class Manager extends members
+{
+    String department;
+
+    public Manager(String name, int age, String phonno, String address, int salary, String department) {
+        super(name, age, phonno, address, salary);
+        this.department = department;
+    }
+}
+class TestEmployee{
+    public static void main(String[] args) {
+        Employee1 e1 = new Employee1("Pratham",20,"9722768555","Surat",50000,"Computer Engineering");
+        Manager m1 = new Manager("Vivek",20,"8145698754","Anand",45000,"CSE");
+        e1.printSalary();
+        m1.printSalary();
+    }
+}
+

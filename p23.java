@@ -1,90 +1,79 @@
-package part4;
-
-interface S {
+interface Shape2 {
     String getColor();
     double getArea();
-    
-    default String describeShape() {
-        return "This is a shape with color: " + getColor() + " and area: " + getArea();
+    default void printShapeInfo() {
+        System.out.println("Shape color: " + getColor());
+        System.out.println("Shape area: " + getArea());
     }
 }
 
-class cir implements S {
-    private double radius;
-    private String color;
+class Circle2 implements Shape2 {
+    double radius;
+    String color;
 
-    public cir(double radius, String color) {
+    public Circle2(double radius, String color) {
         this.radius = radius;
         this.color = color;
     }
+
 
     public String getColor() {
         return color;
     }
 
+
     public double getArea() {
         return Math.PI * radius * radius;
     }
-
-    public double getRadius() {
-        return radius;
-    }
 }
 
-class Re implements S {
-    private double length;
-    private double width;
-    private String color;
+class Rectangle2 implements Shape2 {
+    double length;
+    double width;
+    String color;
 
-    public Re(double length, double width, String color) {
+    public Rectangle2(double length, double width, String color) {
         this.length = length;
         this.width = width;
         this.color = color;
     }
 
-    @Override
+
     public String getColor() {
         return color;
     }
 
-    @Override
+
     public double getArea() {
         return length * width;
     }
-
-    public double getLength() {
-        return length;
-    }
-
-    public double getWidth() {
-        return width;
-    }
 }
 
-class sn {
-    private S shape;
-    private String text;
+class Sign {
+    Shape2 shape;
+    String text;
 
-    public sn(S shape, String text) {
+    public Sign(Shape2 shape, String text) {
         this.shape = shape;
         this.text = text;
     }
 
-    public void displaySign() {
-        System.out.println(shape.describeShape());
+    public void printSignInfo() {
+        shape.printShapeInfo();
         System.out.println("Sign text: " + text);
     }
 }
 
 public class p23 {
     public static void main(String[] args) {
-        cir circle = new cir(5.0, "Red");
-        Re rectangle = new Re(4.0, 6.0, "Blue");
+        Circle2 circle = new Circle2(5.0, "Red");
 
-        sn sign1 = new sn(circle, "Welcome to the Campus Center");
-        sn sign2 = new sn(rectangle, "Library Hours");
+        Rectangle2 rectangle = new Rectangle2(4.0, 6.0, "Blue");
 
-        sign1.displaySign();
-        sign2.displaySign();
+        Sign circleSign = new Sign(circle, "Welcome to Campus!");
+        circleSign.printSignInfo();
+
+        Sign rectangleSign = new Sign(rectangle, "Campus Events");
+        rectangleSign.printSignInfo();
     }
 }
